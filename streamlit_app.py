@@ -1,24 +1,26 @@
-import streamlit
-import pandas
+from random import shuffle
 
-streamlit.title('My Parents New Healthy Diner')
-streamlit.header('Breakfast Menu')
-streamlit.text('🥣 Omega 3 & Blueberry Oatmeal')
-streamlit.text('🥗 Kale, Spinach & Rocket Smoothie')
-streamlit.text('🐔 Hard-Boiled Free-Range Egg')
-streamlit.text('🥑🍞 Avocado Toast')
+mylist =["x", "x", 1]
+play = input("will you play the game?: ")
+def shuffle_list(mylist):
+    shuffle(mylist)
+    return mylist
 
-streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
-
-my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
-my_fruit_list = my_fruit_list.set_index('Fruit')
-
-
-# Let's put some choose availability to customers
-
-# streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index))
-
-streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),['Avocado','Strawberries']) # pre-selected fruits
-
-streamlit.dataframe(my_fruit_list)
-
+shuffle_list(mylist)
+def game():
+    
+    if play == "yes":
+        print("[ x | x | x ]")
+        number = int(input("Chose and write number from 1 to 3, wich 'x' from this table have number '1': "))
+        if number < 1 or number > 3:
+            print("Please next time write correct numbers!")
+        elif number >= 1 and number <=3:
+            if mylist[number-1] == 1:
+                print("you win!")
+                print(mylist)
+            else:
+                print("Wrong!!")
+                print(mylist)
+    else:
+        print("okay, see you next time")
+game()
