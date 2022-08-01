@@ -1,7 +1,7 @@
 import streamlit
 from random import shuffle
 
-steramlit.title('🎮 Edvins Game 🎮')
+streamlit.title('🎮 Edvins Game 🎮')
 
 
 # mylist =["x", "x", 1]
