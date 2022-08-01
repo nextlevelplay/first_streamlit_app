@@ -3,7 +3,7 @@ from random import shuffle
 
 streamlit.title('🎮 Edvins Game 🎮')
 
-steramlit.text('Will you play the game?: ')
+streamlit.text('Will you play the game?: ')
 
 mylist =["x", "x", 1]
 play = input("will you play the game?: ")
