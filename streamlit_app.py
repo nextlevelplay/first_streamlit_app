@@ -1,5 +1,5 @@
 import streamlit
-import shuffle
+from random import shuffle
 
 steramlit.title('🎮 Edvins Game 🎮')
 
