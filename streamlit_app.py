@@ -1,4 +1,4 @@
-from random import shuffle
+import shuffle
 
 mylist =["x", "x", 1]
 play = input("will you play the game?: ")
