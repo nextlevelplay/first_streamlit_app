@@ -2,7 +2,7 @@ import streamlit
 import pandas
 import requests
 
-title_alignment = steramlit.columns(3)
+title_alignment = streamlit.columns(3)
 
 
 
