@@ -2,12 +2,7 @@ import streamlit
 import pandas
 import requests
 
-title_alignment=
-<style>
-🎮 Edvins Game 🎮 {
-  text-align: center
-}
-</style>
+title_alignment = steramlit.columns(3)
 
 
 
