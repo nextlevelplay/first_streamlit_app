@@ -3,10 +3,11 @@ import pandas
 import requests
 
 title_alignment = streamlit.columns(3)
+title_game = streamlit.title('🎮 Edvins Game 🎮')
 
 
 
-streamlit.title(title_alignment, unsafe_allow_html=True)
+streamlit.title(title_alignment, title_game)
 streamlit.header('Breakfast Menu')
 streamlit.text('🥣 Omega 3 & Blueberry Oatmeal')
 streamlit.text('🥗 Kale, Spinach & Rocket Smoothie')
