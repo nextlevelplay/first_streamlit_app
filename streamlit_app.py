@@ -3,13 +3,12 @@ import pandas
 import requests
 
 title_alignment=
-"""
 <style>
 🎮 Edvins Game 🎮 {
   text-align: center
 }
 </style>
-"""
+
 
 
 streamlit.title(title_alignment, unsafe_allow_html=True)
