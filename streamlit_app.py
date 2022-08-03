@@ -5,6 +5,10 @@ import requests
 streamlit.title('🎮 Edvins Game 🎮')
 play = streamlit.text_input("will you play the game? Write (yes / no): ")
 
+answers = ["Yes", "No"]
+
+answer_field = streamlit.multiselect("Pick some fruits:", list(answers.index))
+
 streamlit.header('Breakfast Menu')
 streamlit.text('🥣 Omega 3 & Blueberry Oatmeal')
 streamlit.text('🥗 Kale, Spinach & Rocket Smoothie')
