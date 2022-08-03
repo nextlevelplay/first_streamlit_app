@@ -3,40 +3,40 @@ import pandas
 import requests
 
 streamlit.title('🎮 Edvins Game 🎮')
-play = streamlit.text_input("will you play the game? Write (yes / no): ")
+play = streamlit.text_input("Will you play the game? Make a choice (yes / no): ")
 
 answers_list = ["Yes", "No"]
 answer_field = streamlit.multiselect("Pick some fruits:", list(answers_list))
 
-streamlit.header('Breakfast Menu')
-streamlit.text('🥣 Omega 3 & Blueberry Oatmeal')
-streamlit.text('🥗 Kale, Spinach & Rocket Smoothie')
-streamlit.text('🐔 Hard-Boiled Free-Range Egg')
-streamlit.text('🥑🍞 Avocado Toast')
+# streamlit.header('Breakfast Menu')
+# streamlit.text('🥣 Omega 3 & Blueberry Oatmeal')
+# streamlit.text('🥗 Kale, Spinach & Rocket Smoothie')
+# streamlit.text('🐔 Hard-Boiled Free-Range Egg')
+# streamlit.text('🥑🍞 Avocado Toast')
 
-streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
+# streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
-my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
-my_fruit_list = my_fruit_list.set_index('Fruit')
-# Let's put some choose availability to customers
-# streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index))
-fruit_selected = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),['Avocado','Strawberries']) # pre-selected fruits
+# my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
+# my_fruit_list = my_fruit_list.set_index('Fruit')
+# # Let's put some choose availability to customers
+# # streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index))
+# fruit_selected = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),['Avocado','Strawberries']) # pre-selected fruits
 
-fruit_to_show = my_fruit_list.loc[fruit_selected]
+# fruit_to_show = my_fruit_list.loc[fruit_selected]
 
-streamlit.dataframe(fruit_to_show)
+# streamlit.dataframe(fruit_to_show)
 
-streamlit.header('Fruity Vice Advice')
+# streamlit.header('Fruity Vice Advice')
 
-fruit_choise = streamlit.text_input('What fruit would you like information about?','Kiwi')
-streamlit.write('The user entered: ', fruit_choise)
+# fruit_choise = streamlit.text_input('What fruit would you like information about?','Kiwi')
+# streamlit.write('The user entered: ', fruit_choise)
 
 
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choise)
-# streamlit.text(fruityvice_response.json())
+# fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choise)
+# # streamlit.text(fruityvice_response.json())
 
-fruityvice_normal_view = pandas.json_normalize(fruityvice_response.json())
-streamlit.dataframe(fruityvice_normal_view)
+# fruityvice_normal_view = pandas.json_normalize(fruityvice_response.json())
+# streamlit.dataframe(fruityvice_normal_view)
 
 
 
