@@ -3,10 +3,8 @@ import pandas
 import requests
 
 streamlit.title('🎮 Edvins Game 🎮')
-play = streamlit.text_input("Will you play the game? Make a choice (yes / no): ")
-
 answers_list = ["Yes", "No"]
-answer_field = streamlit.multiselect("Pick some fruits:", list(answers_list))
+answer_field = streamlit.multiselect("Will you play the game? Make a choice (yes / no): ", list(answers_list))
 
 # streamlit.header('Breakfast Menu')
 # streamlit.text('🥣 Omega 3 & Blueberry Oatmeal')
