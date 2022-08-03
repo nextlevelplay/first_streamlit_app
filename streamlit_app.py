@@ -3,6 +3,7 @@ import pandas
 import requests
 
 streamlit.title('🎮 Edvins Game 🎮')
+play = streamlit.text_input("will you play the game? Write (yes / no): ")
 
 streamlit.header('Breakfast Menu')
 streamlit.text('🥣 Omega 3 & Blueberry Oatmeal')
