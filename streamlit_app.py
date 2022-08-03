@@ -5,7 +5,7 @@ import requests
 streamlit.title('🎮 Edvins Game 🎮')
 play = streamlit.text_input("will you play the game? Write (yes / no): ")
 
-answers_list = answers_list.set_index('Yes','No')
+answers_list = answers_list.set_index('Yes')
 answer_field = streamlit.multiselect("Pick some fruits:", list(answers_list.index))
 
 streamlit.header('Breakfast Menu')
