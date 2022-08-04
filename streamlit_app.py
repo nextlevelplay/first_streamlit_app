@@ -1,6 +1,7 @@
 import streamlit
 import pandas
 import requests
+import snowflake.connector
 
 streamlit.title('🎮 Edvins Game 🎮')
 answers_list = ["Yes", "No"]
