@@ -38,7 +38,8 @@ fruityvice_normal_view = pandas.json_normalize(fruityvice_response.json())
 streamlit.dataframe(fruityvice_normal_view)
 
 
-fruit_load_list = requests.get("https://fruityvice.com/api/fruit/all")
+get_fruit_load_list = requests.get("https://fruityvice.com/api/fruit/all")
+fruit_load_list = pandas.json_normalize(get_fruit_load_list.json())
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 # my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
