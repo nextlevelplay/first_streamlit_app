@@ -20,18 +20,18 @@ my_fruit_list = my_fruit_list.set_index('Fruit')
 # Let's put some choose availability to customers
 # streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index))
 fruit_selected = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),['Avocado','Strawberries']) # pre-selected fruits
-my_cur.execute("INSERT INTO fruit_load_list values ('from streamlit')")
+
 
 fruit_to_show = my_fruit_list.loc[fruit_selected]
 
 streamlit.dataframe(fruit_to_show)
-my_cur.execute("INSERT INTO fruit_load_list values ('from streamlit')")
+
 
 streamlit.header('Fruity Vice Advice')
 
 fruit_choise = streamlit.text_input('What fruit would you like information about?','Kiwi')
 streamlit.write('The user entered: ', fruit_choise)
-my_cur.execute("INSERT INTO fruit_load_list values ('from streamlit')")
+
 
 
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choise)
@@ -39,7 +39,7 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_cho
 
 fruityvice_normal_view = pandas.json_normalize(fruityvice_response.json())
 streamlit.dataframe(fruityvice_normal_view)
-my_cur.execute("INSERT INTO fruit_load_list values ('from streamlit')")
+
 
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
@@ -53,14 +53,14 @@ my_data_rows = my_cur.fetchall()
 streamlit.header("The fruit load list contains:")
 # streamlit.text(my_data_row)
 streamlit.dataframe(my_data_rows)
-my_cur.execute("INSERT INTO fruit_load_list values ('from streamlit')")
+
 
 
 fruit_add = streamlit.text_input('What fruit would you like to add?:')
 my_cur.execute("INSERT INTO fruit_load_list values ('"+fruit_add+"')")
 streamlit.write('Thanks for adding ', fruit_add)
 
-my_cur.execute("INSERT INTO fruit_load_list values ('from streamlit')")
+
 
 
 
