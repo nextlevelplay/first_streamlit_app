@@ -29,17 +29,17 @@ streamlit.dataframe(fruit_to_show)
 
 
 streamlit.header('Fruity Vice Advice')
-
-fruit_choise = streamlit.text_input('What fruit would you like information about?','Kiwi')
-streamlit.write('The user entered: ', fruit_choise)
-
-
-
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choise)
-# streamlit.text(fruityvice_response.json())
-
-fruityvice_normal_view = pandas.json_normalize(fruityvice_response.json())
-streamlit.dataframe(fruityvice_normal_view)
+try:
+    fruit_choise = streamlit.text_input('What fruit would you like information about?')
+    if not fruit_choise:
+        streamlit.error("Please select a fruit to get information.")
+        esle:
+            fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choise)
+            # streamlit.text(fruityvice_response.json())
+            fruityvice_normal_view = pandas.json_normalize(fruityvice_response.json())
+            streamlit.dataframe(fruityvice_normal_view)
+except URLError as e:
+    streamlit.error()
 
 
 
